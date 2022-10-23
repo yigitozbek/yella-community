@@ -35,7 +35,7 @@ public class OrderApplicationService : ApplicationService, IOrderService
 [TransactionAspect(AspectPriority = 3)]
 [AuthorizationAspect(YellaPermission.Orders.Update, AspectPriority = 1)]
 [FluentValidationAspect(typeof(OrderUpdateRequestValidator), AspectPriority = 2)]
-public async Task<IDataResult<DemandDto>> UpdateAsync(OrderUpdateRequest input)
+public async Task<IDataResult<OrderUpdateResponse>> UpdateAsync(OrderUpdateRequest input)
 {
 
   var query = (await _orderRepository.WithIncludeAsync(x => x.Customer).OrderByDescending(x => x.CreationTime);
