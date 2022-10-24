@@ -38,12 +38,26 @@ public class OrderApplicationService : ApplicationService, IOrderService
 public async Task<IDataResult<OrderUpdateResponse>> UpdateAsync(OrderUpdateRequest input)
 {
 
-  var query = (await _orderRepository.WithIncludeAsync(x => x.Customer).OrderByDescending(x => x.CreationTime);
+  IQueryable<Order> query = await _orderRepository.WithIncludeAsync(x => x.SalesRepresentative);
   
   ...
 
 }
 ```
+
+```c#
+[AuthorizationAspect(YellaPermission.Demands.Get, AspectPriority = 1)]
+public async Task<IDataResult<IEnumerable<DemandDto>>> GetListFilterAsync(List<IFilterInput> input)
+{
+    var query = (await _demandRepository.WithIncludeAsync(x => x.Customer);
+
+    var list = await (await query.FilterAsync(input)).ToListAsync();
+
+    return ReturnResult(list.ToMapper<IEnumerable<DemandDto>>());
+}
+```
+
+
 ## Support US
 
 * If you like the Yella, you can become a sponsor.
