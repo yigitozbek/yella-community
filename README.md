@@ -1,6 +1,6 @@
 ## What is Yella Community?
 
-* Yella Framework provides you with an infrastructure by providing you with the latest technology in a fast and efficient way while you are making a web project. Although Yella Community is free, it offers many conveniences to developers
+* Yella Framework provides you with an infrastructure by providing you with the latest technology in a fast and efficient way while you are making a web project. Yella Community offers many conveniences to developers as it is free.
 
 * If there is a deleted data, it ensures that the data is not returned without writing any code instead of constantly writing to the condition so that the data does not come.
 
